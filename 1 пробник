@@ -1,0 +1,41 @@
+#include <stdio.h>
+#include <iostream>
+#include <stdlib.h>
+#include <math.h>
+
+using namespace std;
+
+int main()
+{
+    int x=2;
+    int* arr_stok;
+    int g, i=0, storage, p=0;
+    int v;
+    arr_stok = (int*) malloc(sizeof(int));
+    do{
+    cout << "введите числа" << endl;
+    cin >> g;
+    arr_stok[i]=g;
+    i++;
+    if(i>=x){
+        // int *arr_stok = new int [x++];
+        arr_stok = (int*) realloc(arr_stok, x++ * sizeof(int));
+    }
+    }while(i<6);
+    v=pow(x,2);
+    
+    do{
+        for(int h=0; h<x; h++){
+            if(arr_stok[h]>arr_stok[h+1]){
+                swap(arr_stok[h], arr_stok[h+1]);
+            }
+        }
+    p++;
+    }while(p<v);    
+    
+    for(int h=1; h<x; h++){
+        cout<<"\n"<<arr_stok[h]<<"\n";
+    }
+    
+    return 0;
+}
